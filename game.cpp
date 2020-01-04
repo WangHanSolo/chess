@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
-#include "move.cpp"
+//#include "methods.cpp"
+#define ROWS 8
+#define COLS 8
 
-char board[8][8] = 
+char board[ROWS][COLS] = 
 {
 'r','n','b','q','k','b','n','r',
 'p','p','p','p','p','p','p','p',
@@ -15,11 +17,27 @@ char board[8][8] =
 };
 
 /**
+ * Prints board to console
+ */
+void printb()
+{
+    for(int i = 0; i < 8; i++)
+    {
+        for(int j = 0; j < 8; j++)
+        {
+            std::cout<<board[i][j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
+    std::cout<<std::endl<<std::endl;
+}
+
+/**
  * flips board if player wants to play black
  */
 void flipboard()
 {
-    char temp[8][8] = 
+    char temp[ROWS][COLS] = 
     {
     'R','N','B','Q','K','B','N','R',
     'P','P','P','P','P','P','P','P',
@@ -39,22 +57,41 @@ void flipboard()
         }       
     }
 }
-
 /**
- * Prints board to console
+ *convert board alphabet coordinates to numbers for array indexing
  */
-void printb()
+int alphabet2int(char letter)
 {
+    int num;
+    char alph[8] = {'a','b','c','d','e','f','g','h'};
+
     for(int i = 0; i < 8; i++)
     {
-        for(int j = 0; j < 8; j++)
+        if(letter==alph[i])
         {
-            std::cout<<board[i][j]<<" ";
+            num = i;
+            break;
         }
-        std::cout<<std::endl;
     }
-    std::cout<<std::endl<<std::endl;
+    return num; 
 }
+
+/**
+ * Takes the move string and moves the pieces on the board
+ * '1' ascii is 49, 8 ascii is 56
+ */
+void move_piece(std::string move,char board[ROWS][COLS])
+{
+    std::cout<<move[1]<<std::endl<<move[3]<<std::endl<<std::endl;
+    int origin_row = 56-(int)move[1]; int origin_col = alphabet2int(move[0]);
+    int dest_row = 56-(int)move[3]; int dest_col = alphabet2int(move[2]);
+
+
+    board[dest_row][dest_col] = board[origin_row][origin_col];
+    board[origin_row][origin_col] = '-';
+}
+
+
 
 int main()
 {
@@ -80,9 +117,9 @@ int main()
 
         if(move == "q")
            break; 
-        std::cout<<std::endl<<std::endl<<std::endl;
+        std::cout<<std::endl<<std::endl;
 
-        move(board);
+        move_piece(move, board);
 
         printb();
     }
