@@ -8,10 +8,10 @@ src: all the code :)
 test: unit tests :(
 ## Progress 
 
-#1/11/2020
+# 1/11/2020
 Finished QueenLegalMove, load board from txt, and update game methods. Right now program throws error when compiling need to debug. Next step is think about whether AllyCollision method is needed.
 
-#1/7/2020
+# 1/7/2020
 worked on legal moves for all pieces except for queen, still wip. Need to finish rook checking collision in legalmoves.cpp
 TODO:
 1. check colision for rook,bishop
