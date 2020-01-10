@@ -2,6 +2,8 @@
 
 My foolish attempt to create my own chess engine. Its still a work in progress. If you want to try it out clone the repository and compile by entering "make" (without parantheses). It will create the executable "game". GLHF!
 
+NOTE: I'll be polishing the engine here and there to see if I can make it better. Sometimes it might not work cause I am adding new stuff to it and got stuck! But fear not, I will try my best to get it working asap :)
+
 ## File Structure
 
 src: all the code :)
