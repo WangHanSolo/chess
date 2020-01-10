@@ -21,41 +21,6 @@ void printb(Game game)
     std::cout<<std::endl<<std::endl;
 }
 
-/**
- *convert board alphabet coordinates to numbers for array indexing
- */
-//int alphabet2int(char letter)
-//{
-//    int num;
-//    char alph[8] = {'a','b','c','d','e','f','g','h'};
-//
-//    for(int i = 0; i < 8; i++)
-//    {
-//        if(letter==alph[i])
-//        {
-//            num = i;
-//            break;
-//        }
-//    }
-//    return num; 
-//}
-
-/**
- * Takes the move string and moves the pieces on the board
- * '1' ascii is 49, 8 ascii is 56
- */
-//void move_piece(std::string move,char board[ROWS][COLS])
-//{
-//    std::cout<<move[1]<<std::endl<<move[3]<<std::endl<<std::endl;
-//    int origin_row = 56-(int)move[1]; int origin_col = alphabet2int(move[0]);
-//    int dest_row = 56-(int)move[3]; int dest_col = alphabet2int(move[2]);
-//
-//
-//    board[dest_row][dest_col] = board[origin_row][origin_col];
-//    board[origin_row][origin_col] = '-';
-//}
-
-
 
 int main()
 {

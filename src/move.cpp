@@ -7,7 +7,7 @@ Game move_piece(std::string input, Game game)
 {
     if(game.board[(56-input[1]) * 8 + alphabet2int(input[0])] == '-')
     {
-        std::cout<<"Invalid move"<<std::endl;
+        std::cout<<"Invalid move: No piece there"<<std::endl;
         return game;
     }
 
@@ -28,7 +28,7 @@ Game move_piece(std::string input, Game game)
     }
     else
     {
-        std::cout<<std::endl<<"INVALID MOVE"<<std::endl;
+        std::cout<<std::endl<<"INVALID MOVE: "<< move.piece<< " to "<<input<<std::endl;
     }
 
 return game;
@@ -42,6 +42,10 @@ bool legal_move(Move move, Game game)
     if(move.piece == 'R')
         return rookLegalMove(move,game);
 
+    if(move.piece == 'N')
+        return knightLegalMove(move,game);
+    
+
     if(move.piece == 'B')
         return bishopLegalMove(move,game);
 
@@ -53,8 +57,6 @@ bool legal_move(Move move, Game game)
         return false;
 
 
-//   if(move.char == 'N')
-//       return knightLegalMove(move,game);
 
     return false;
 }

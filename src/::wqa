@@ -11,11 +11,11 @@ struct Game
     char board[64];
     bool whitePiecesPosition[64];
     bool blackPiecesPosition[64];
-
 };
 
-/**
- *Returns new chess game
- */
+
+// Returns new chess game
 Game initialize_board();
 
+//Updates game state
+Game update_game(Game game);
