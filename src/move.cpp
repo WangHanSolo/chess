@@ -5,12 +5,14 @@
 
 Game move_piece(std::string input, Game game)
 {
+    //checks if there is a piece there
     if(game.board[(56-input[1]) * 8 + alphabet2int(input[0])] == '-')
     {
         std::cout<<"Invalid move: No piece there"<<std::endl;
         return game;
     }
-
+    
+    //assign move struct 
     Move move; 
     move.from_row = 56 - input[1]; 
     move.from_col = alphabet2int(input[0]);
@@ -18,6 +20,7 @@ Game move_piece(std::string input, Game game)
     move.to_col = alphabet2int(input[2]);
     move.piece = game.board[(56-input[1]) * 8 + alphabet2int(input[0])];
 
+    //check if its a legal move
     if(legal_move(move,game))
     {
         //replace destination square with piece
@@ -25,10 +28,13 @@ Game move_piece(std::string input, Game game)
         
         //replaces the origin square with -
         game.board[move.from_row * 8 + move.from_col] = '-';
+
+        update_game(move, game);
     }
     else
     {
-        std::cout<<std::endl<<"INVALID MOVE: "<< move.piece<< " to "<<input<<std::endl;
+        std::cout<<std::endl<<"INVALID MOVE: "
+            << move.piece<< " to "<<input<<std::endl;
     }
 
 return game;
@@ -52,9 +58,8 @@ bool legal_move(Move move, Game game)
     if(move.piece == 'K')
         return kingLegalMove(move,game);
     
-    //TODO THIS NEEDS A LOT OF THOUGHT HOW TO IMPLEMENT
-    if(move.piece == 'Q')
-        return false;
+    //TODO THIS NEEDS A LOT OF THOUGHT HOW TO IMPLEMENT if(move.piece == 'Q')
+        return queenLegalMove(move,game);
 
 
 

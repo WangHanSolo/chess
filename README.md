@@ -2,7 +2,14 @@
 
 My foolish attempt to create my own chess engine. Its still a work in progress. If you want to try it out clone the repository and compile by entering "make" (without parantheses). It will create the executable "game". GLHF!
 
+## File Structure
+
+src: all the code :)
+test: unit tests :(
 ## Progress 
+
+#1/11/2020
+Finished QueenLegalMove, load board from txt, and update game methods. Right now program throws error when compiling need to debug. Next step is think about whether AllyCollision method is needed.
 
 #1/7/2020
 worked on legal moves for all pieces except for queen, still wip. Need to finish rook checking collision in legalmoves.cpp

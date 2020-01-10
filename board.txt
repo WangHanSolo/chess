@@ -1,0 +1,23 @@
+1
+1
+
+1
+1
+1
+1
+--------
+--------
+--------
+--------
+--------
+--------
+--------
+--------
+
+turn number
+turnSide (1 for white, 0 for black)
+
+whiteCastleKingSide (1 for available, 0 if not)
+whiteCastleQueenSide (1 for available, 0 if not)
+blackCastleKingSide (1 for available, 0 if not)
+blackCastleQueenSide (1 for available, 0 if not)

@@ -16,3 +16,5 @@ bool rookLegalMove(Move move, Game game);
 bool knightLegalMove(Move move, Game game);
 bool bishopLegalMove(Move move, Game game);
 bool kingLegalMove(Move move, Game game);
+bool queenLegalMove(Move move, Game game);
+bool checkAllyCollision(Move move, Game game);

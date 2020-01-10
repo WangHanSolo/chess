@@ -11,6 +11,13 @@ void printb(Game game)
 {
 
     std::cout<<std::endl<<std::endl;
+    std::cout<<"TURN NUMBER: " <<game.turnNum<<"     ";
+    
+    if(game.turnSide == 1)
+        std::cout<<"White to move"<<std::endl<<std::endl;
+    else
+        std::cout<<"Black to move"<<std::endl<<std::endl;
+
     for(int i = 0; i < 64; i++)
     {
         std::cout<<game.board[i]<<" ";
@@ -27,8 +34,8 @@ int main()
     int side;
     Game game;
     
-    game = initialize_board();
-
+//    game = initialize_board();
+    game = load_board("board.txt");
     std::cout<<game.whiteCastleKingSide<<std::endl;
     std::string move;
     std::cout<<"Han's foolish attempt at making his own chess engine"<<std::endl<<std::endl;

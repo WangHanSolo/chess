@@ -105,3 +105,35 @@ bool kingLegalMove(Move move, Game game)
 
     return true;
 }
+
+bool queenLegalMove(Move move, Game game)
+{
+    bool bishop = bishopLegalMove(move,game);
+    bool rook = rookLegalMove(move,game);
+    if(rook)
+        std::cout<<"bishop"<<std::endl;
+    if(bishop)
+        std::cout<<"rook"<<std::endl;
+    //
+    //queen can move like bishop or rook but not both at the same time (XOR)
+    if(!bishopLegalMove(move, game) != !rookLegalMove(move,game))
+        return true;
+  
+    return false;
+}
+//
+//TODO: maybe not necessary
+bool checkAllyCollision(Move move, Game game)
+{
+    //white turn
+    if(game.turnSide = true)
+    {
+
+
+    }
+    //black turn
+    if(game.turnSide = false)
+    {
+
+    }
+}
