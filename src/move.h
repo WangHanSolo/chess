@@ -1,15 +1,16 @@
 #pragma once
 
-#include "game.h"
+#include "struct.h"
 
-struct Move
-{
-    char piece;
-    int from_row;
-    int from_col;
-    int to_row;
-    int to_col;
-};
+//struct Move
+//{
+//    char piece;
+//    int from_row;
+//    int from_col;
+//    int to_row;
+//    int to_col;
+//};
+
 /*
 moves the chess piece
 

@@ -10,6 +10,9 @@ src: all the code :)
 test: unit tests :(
 ## Progress 
 
+# 1/24/2020
+Reorganized file structure to solve compile error, moved all struct into header file "struct.h"
+
 # 1/11/2020
 Finished QueenLegalMove, load board from txt, and update game methods. Right now program throws error when compiling need to debug. Next step is think about whether AllyCollision method is needed.
 
