@@ -11,8 +11,8 @@ test: unit tests :(
 ## Progress 
 
 #1/26/2020
-Finished bishop collision detection \n
-Working on rook collision, unsure if working correctly. \n
+Finished bishop collision detection 
+Working on rook collision, unsure if working correctly.
 noticed that it isnt displaying turn number and whose turn it is to play correctly
 
 # 1/24/2020
