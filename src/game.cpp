@@ -18,18 +18,22 @@ Game update_game(Move move, Game game)
     game.total_moves++;
     game.turnNum = game.total_moves/2+1;
 
-    //White's turn
+    //White's turn updates array tracking white position
     if(game.turnSide == 1)
     {
         game.whitePiecesPosition[move.to_row * 8 + move.to_col]=1;
         game.whitePiecesPosition[move.from_row * 8 + move.from_col]=0;
     }
 
-    if(game.turnSide == 0)
+    //Black's turn updates array tracking blacks position
+    if(game.turnSide==0)
     {
         game.blackPiecesPosition[move.to_row * 8 + move.to_col]=1;
         game.blackPiecesPosition[move.from_row * 8 + move.from_col]=0;
     }
+
+    game.piecesPosition[move.to_row * 8 + move.to_col] = 1;
+    game.piecesPosition[move.from_row * 8 + move.from_col] = 0;
 
     return game;
 }
@@ -84,11 +88,24 @@ Game initialize_board()
         1,1,1,1,1,1,1,1
     };
 
+    bool pieces[64] = 
+    {
+        1,1,1,1,1,1,1,1,
+        1,1,1,1,1,1,1,1,
+        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,
+        1,1,1,1,1,1,1,1,
+        1,1,1,1,1,1,1,1
+    };
+
     for(int i = 0; i < 64; i++)
     {
         game.board[i] = board[i];
         game.whitePiecesPosition[i] = white[i];
         game.blackPiecesPosition[i] = black[i];
+        game.piecesPosition[i] = pieces[i];
     }
 
     return game;

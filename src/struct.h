@@ -17,6 +17,7 @@ struct Game
     char board[64];
     bool whitePiecesPosition[64];
     bool blackPiecesPosition[64];
+    bool piecesPosition[64];
 };
 
 struct Move

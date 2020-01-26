@@ -70,20 +70,97 @@ bool knightLegalMove(Move move, Game game)
         //std::cout<<"steps equal"<<std::endl;
         return false;
     }
+    
+    //if there is already a same color piece there
+    if((game.turnSide == 1 && game.whitePiecesPosition[move.to_row * 8 + move.to_col == true]) || 
+       (game.turnSide == 0 && game.blackPiecesPosition[move.to_row * 8 + move.to_col == true]))
+        return false;
     //std::cout<<"knight legal move method reached"<<std::endl;
     return true;
 }
 
 bool bishopLegalMove(Move move, Game game)
 {
+    int origin_index = move.from_row * 8 + move.from_col;
+    int dest_index = move.to_row * 8 + move.to_col;
     int xstep = abs(move.from_col - move.to_col);
     int ystep = abs(move.from_row - move.to_row);
     //x = y steps and !=0
-
+    //No pieces along path
+//    std::cout<<"bishoplegalmovereached"<<std::endl;
     if(xstep == ystep && xstep !=0)
-        return true;
+    {
+//        std::cout<<"1st if statment passed"<<std::endl;
+        //check diaganol direction
+        //heading left
+        if(move.from_col > move.to_col)
+        {
+            //heading down
+            if(move.from_row < move.to_row)
+            {
+//                std::cout<<"heading left down"<<std::endl;
+                for(int i = origin_index + 7; i < dest_index; i = i + 7)
+                {
+                    //if piece is along way return false
+                    if(game.piecesPosition[i] == 1)
+                        return false;
+                }
 
-    return false;
+            }
+            //heading up
+            else
+            {
+//                std::cout<<"heading left up"<<std::endl;
+                for(int i = origin_index - 9; i > dest_index; i = i- 9)
+                {
+                    if(game.piecesPosition[i] == 1)
+                    {
+//                        std::cout<<"working"<<std::endl;
+                        return false;
+                    }
+                }
+            }
+        }
+        //heading right
+        else
+        {
+            //heading down
+            if(move.from_row < move.to_row)
+            {
+//                std::cout<<"heading right down"<<std::endl;
+                for(int i = origin_index + 9; i < dest_index; i = i + 9)
+                {
+                    if(game.piecesPosition[i] == 1)
+                        return false;
+                }
+            }
+            //heading up
+            else
+            {
+//                std::cout<<"heading right up"<<std::endl;
+                std::cout<<origin_index<<std::endl;
+                for(int i = origin_index - 7; i > dest_index; i = i - 7)
+                {
+//                    std::cout<<"for loop reached"<<std::endl;
+                    if (game.piecesPosition[i] == 1)
+                        return false;
+                }
+            }
+
+        }
+    }
+    else
+        return false;
+
+    //destination contain same color piece return false
+    if(game.turnSide == 1 && game.whitePiecesPosition[move.to_row * 8 + move.to_col] == true)
+        return false;
+    if(game.turnSide == 0 && game.blackPiecesPosition[move.to_row * 8 + move.to_col] == true)
+        return false;
+
+//    std::cout<<"bishoplegalmove returning true"<<std::endl;
+
+    return true;
 }
 
 bool kingLegalMove(Move move, Game game)

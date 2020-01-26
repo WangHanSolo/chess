@@ -10,6 +10,9 @@ src: all the code :)
 test: unit tests :(
 ## Progress 
 
+#1/26/2020
+Finished bishop collision detection, working on rook collision detection
+
 # 1/24/2020
 Reorganized file structure to solve compile error, moved all struct into header file "struct.h"
 

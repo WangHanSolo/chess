@@ -34,14 +34,14 @@ int main()
     int side;
     Game game;
     
-//    game = initialize_board();
-    game = load_board("board.txt");
+    game = initialize_board();
+//    game = load_board("board.txt");
     std::cout<<game.whiteCastleKingSide<<std::endl;
     std::string move;
     std::cout<<"Han's foolish attempt at making his own chess engine"<<std::endl<<std::endl;
    
     
-    std::cout<<"what side do you want to play?"<<std::endl;
+    std::cout<<"which side do you want to play?"<<std::endl;
     std::cout<<"    enter 1 for white"<<std::endl;
     std::cout<<"    enter 2 for black"<<std::endl;
     std::cin>>side;
