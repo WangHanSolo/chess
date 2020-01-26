@@ -3,6 +3,7 @@
 
 #include "legalmove.h"
 
+
 bool pawnLegalMove(Move move, Game game)
 { 
    int step = move.from_row - move.to_row; 
@@ -24,30 +25,73 @@ bool pawnLegalMove(Move move, Game game)
 
 bool rookLegalMove(Move move, Game game)
 {
-    int xstep = abs(move.to_col - move.from_col);
-    int ystep = abs(move.to_row - move.from_row);
+    int xstep = move.to_col - move.from_col;
+    int ystep = move.to_row - move.from_row;
+
     if(
             //both x and y change
             (xstep != 0 && ystep != 0) ||
             //neither x nor y change
             (xstep == 0 && ystep == 0)
       )
+    {
         return false;
-    
-    /**check if there is a piece blocking
-     * first check if rook is moving vert or horiz
-     */
-    //moving horz
-//    if(move.from_row==move.to_row)
-//    {
-//
-//    }
-//
-//    //moving vert
-//    if(move.from_col==move.to_col)
-    
+    }
+    //if going straight then check if path is blocked
+    else
+    {
+        std::cout<<"checking if path is blocked"<<std::endl;
+        //going horizontal
+        if(xstep != 0)
+        {
+            //going right
+            if(xstep > 0)
+            for(int i = move.from_col + 1; i < move.to_col; i++)
+            {
+                if(game.piecesPosition[move.from_row * 8 + i] == 1)
+                    return false;
+            }
+            else //going left
+            {
+                for(int i = move.from_col - 1; i > move.to_col; i--)
+                {
+                    if(game.piecesPosition[move.from_row * 8 + i] == 1)
+                        return false;
+                }
+            }
+        }
+        //going vertical
+        else  
+        {
+            std::cout<<"going vertical"<<std::endl;
+           //going up
+           if(ystep < 0)
+           {
+               std::cout<<"going up"<<std::endl;
+               for(int i = move.from_row - 1; i > move.to_row; i--)
+               {
+                   if(game.piecesPosition[i * 8 + move.to_col] == 1)
+                   {
+                       return false;
+                   }
+               }
+           }
+           else //going down
+           {
+               for(int i = move.from_row + 1; i < move.to_row; i++) 
+               {
+                   if(game.piecesPosition[i * 8 + move.to_col] == 1)
+                       return false;
+               }
+           }
+        }
         
-       
+    } 
+    //checks if destination has a same color piece
+    if((game.turnSide == 1 && game.whitePiecesPosition[move.to_row * 8 + move.to_col] == 1) ||
+       (game.turnSide == 0 && game.blackPiecesPosition[move.to_row * 8 + move.to_col] == 1))
+        return false;
+
     return true;
 }
 
@@ -197,20 +241,4 @@ bool queenLegalMove(Move move, Game game)
         return true;
   
     return false;
-}
-//
-//TODO: maybe not necessary
-bool checkAllyCollision(Move move, Game game)
-{
-    //white turn
-    if(game.turnSide = true)
-    {
-
-
-    }
-    //black turn
-    if(game.turnSide = false)
-    {
-
-    }
 }

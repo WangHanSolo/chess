@@ -11,7 +11,9 @@ test: unit tests :(
 ## Progress 
 
 #1/26/2020
-Finished bishop collision detection, working on rook collision detection
+Finished bishop collision detection \n
+Working on rook collision, unsure if working correctly. \n
+noticed that it isnt displaying turn number and whose turn it is to play correctly
 
 # 1/24/2020
 Reorganized file structure to solve compile error, moved all struct into header file "struct.h"
